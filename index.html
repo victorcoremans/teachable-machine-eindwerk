@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>Teachable Machine Image Model</div>
+<button type="button" onclick="init()">Start</button>
+<div id="webcam-container"></div>
+<div id="label-container"></div>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+
+<script type="module" src="classes/App.js"></script>
+
+
+<script type="text/javascript">
+    // More API functions here:
+    // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+
+    // the link to your model provided by Teachable Machine export panel
+
+
+</script>
+
+    <div class="container">
+    <div id="vraag-teller"><h1>Mediacampus quiz vraag 1</h1></div>
+    <div>
+
+    <div id="vraag-paneel">
+        <div id="vraag">
+        <h1></h1>
+        </div>
+                   
+<div class="cards">
+        <div class="card-verticaal">
+            <h1>Eens</h1>
+            <img src="images/noun-thumbs-up-61039 1.png" alt="">
+        </div>
+              <div class="card-verticaal">
+            <h1>Neutraal</h1>
+            <img id="neutraal" src="images/noun-thumb-horizontal-4154461 1.png" alt="">
+        </div>
+              <div class="card-verticaal">
+            <h1>Oneens</h1>
+            <img src="images/noun-thumbs-up-61039 2.png" alt="">
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

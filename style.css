@@ -1,0 +1,143 @@
+body {
+    background-image: url(images/098d3f550e7c3fc8540f911bad76fbc8.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+     background-position: center;
+         margin: 0;
+    padding: 0;
+         text-align: center;
+color: #FA6432;
+     
+}
+#neutraal {
+    width: 32.5%;
+}
+.container {
+          width: 60vw;
+    min-height: 100vh;
+     margin-left: auto;
+    margin-right: auto;
+    margin-top: 12.5%;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+#vraag-teller {
+          padding-left: 7.5%;
+           padding-right: 7.5%;
+     border: 1px solid rgba( 255, 255, 255, 0.18 );
+            background-color: #00283C65;
+      
+            backdrop-filter: blur( 2px );
+            border-radius: 1em;
+            transition: transform 0.8s;
+}
+
+
+.card-verticaal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+           padding-left: 1rem;
+           padding-right: 1rem;
+           padding-top: 1rem;
+           padding-bottom: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+            background-color: #00283C65;
+            backdrop-filter: blur( 2px );
+            border-radius: 1em;
+            transition: transform 0.8s;
+            gap: 0.5rem;    
+
+}
+.card-verticaal img:not(#neutraal) {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+
+}
+.cards {
+    display: flex;
+    flex-direction: column;
+
+        gap: 20px;
+    height: 100%;
+    list-style-position: inside;
+    counter-reset: counter;
+}
+.cards:has(.card-verticaal) {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+      row-gap: 50px;
+}
+ul {
+      list-style-type: none;
+    padding-inline-start: 0px;
+}
+#vraag-paneel {
+     display: flex;
+      flex-direction: column;
+            gap: 2.5%;
+
+      padding: 3rem;
+      height: 70vh;
+      text-align: center;
+      border: 1px solid rgba( 255, 255, 255, 0.18 );
+      background-color: #00283C75;
+      backdrop-filter: blur( 2px );  
+      border-radius: 1em;      
+      transition: transform 0.8s;           
+}
+.card-horizontaal {
+    font-size: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 17.5%;
+    text-align: center;
+     width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+           padding-top: 1rem;
+           padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+            background-color: #00283C65;
+            backdrop-filter: blur( 2px );
+            border-radius: 1em;
+            transition: transform 0.8s;
+ 
+} 
+.card-horizontaal h3::before {
+    content: counter(counter) ".";
+    font-size: 40px;
+}
+.cards > li {
+    counter-increment: counter;
+}
+.card-horizontaal h3 {
+
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+}
+
+.content 
+{
+    padding: 0 1.5rem; 
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 0.5rem; 
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content p {
+font-weight: bold;
+}
