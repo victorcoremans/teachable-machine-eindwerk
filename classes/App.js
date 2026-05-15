@@ -12,6 +12,11 @@ export class App {
 
         this.reaction = new Reaction();
         this.leaderboard = new Leaderboard();
+        let startScores = {    scoreMEB: 0,
+        scoreJOU: 0,
+        scoreXD: 0,
+        scoreCOM: 0}
+        localStorage.setItem("scores", JSON.stringify(startScores));
     }
 
     async init() {
