@@ -2,44 +2,24 @@ import { questions } from "./Questions.js";
 
 export class Reaction {
     handle(mostProbable, questionNumber) {
-        let answerMEB = 0;
-        let answerJOU = 0;
-        let answerXD = 0;
-        let answerCOM = 0;
         let scores = JSON.parse(localStorage.getItem("scores"));
+        const currentQuestion = questions[questionNumber];
         if (mostProbable == "Thumbs up") {
-
-            answerCOM = questions[questionNumber].scoreCOM;
-            answerMEB = questions[questionNumber].scoreMEB;
-            answerJOU = questions[questionNumber].scoreJOU;
-            answerXD = questions[questionNumber].scoreXD;
-            answerCOM = scores.scoreCOM + answerCOM;
-            answerMEB = scores.scoreMEB + answerMEB;
-            answerJOU = scores.scoreJOU + answerJOU;
-            answerXD = scores.scoreXD + answerXD;
-            localStorage.setItem("scores", JSON.stringify({scoreMEB: answerMEB, scoreJOU: answerJOU, scoreXD: answerXD, scoreCOM: answerCOM}));
+            scores.scoreMEB += currentQuestion.scoreMEB;
+            scores.scoreJOU += currentQuestion.scoreJOU;
+            scores.scoreXD += currentQuestion.scoreXD;
+            scores.scoreCOM += currentQuestion.scoreCOM;
       }
         if (mostProbable == "Thumbs neutral") {
-            answerCOM = 0;
-            answerMEB = 0;
-            answerJOU = 0;
-            answerXD = 0;
-            answerCOM = scores.scoreCOM + answerCOM;
-            answerMEB = scores.scoreMEB + answerMEB;
-            answerJOU = scores.scoreJOU + answerJOU;
-            answerXD = scores.scoreXD + answerXD;
-            localStorage.setItem("scores", JSON.stringify({scoreMEB: answerMEB, scoreJOU: answerJOU, scoreXD: answerXD, scoreCOM: answerCOM}));
+        console.log("Neutraal gekozen: geen punten erbij of eraf.");
           }
         if (mostProbable == "Thumbs down") {
-            answerCOM = questions[questionNumber].scoreCOM * -1;
-            answerMEB = questions[questionNumber].scoreMEB * -1;
-            answerJOU = questions[questionNumber].scoreJOU * -1;
-            answerXD = questions[questionNumber].scoreXD * -1;
-            answerCOM = scores.scoreCOM + answerCOM;
-            answerMEB = scores.scoreMEB + answerMEB;
-            answerJOU = scores.scoreJOU + answerJOU;
-            answerXD = scores.scoreXD + answerXD;
-            localStorage.setItem("scores", JSON.stringify({scoreMEB: answerMEB, scoreJOU: answerJOU, scoreXD: answerXD, scoreCOM: answerCOM}));
+            scores.scoreMEB -= currentQuestion.scoreMEB;
+            scores.scoreJOU -= currentQuestion.scoreJOU;    
+            scores.scoreXD -= currentQuestion.scoreXD;
+            scores.scoreCOM -= currentQuestion.scoreCOM;
         }
+        localStorage.setItem("scores", JSON.stringify(scores));
+        return true
     }
 }

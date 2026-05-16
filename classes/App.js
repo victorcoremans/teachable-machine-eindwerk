@@ -9,9 +9,10 @@ export class App {
         this.webcam = null;
         this.labelContainer = null;
         this.maxPredictions = 0;
-
+        this.isProcessing = false;
         this.reaction = new Reaction();
         this.leaderboard = new Leaderboard();
+        this.questionCounter = 0;
         let startScores = {    scoreMEB: 0,
         scoreJOU: 0,
         scoreXD: 0,
@@ -70,10 +71,17 @@ export class App {
 
         let questionNumber = this.currentQuestionIndex;
 
-        if (score > 0.9) {
+        if (score > 0.9 && !this.isProcessing) {
+            this.isProcessing = true;
             const result = this.reaction.handle(mostProbable, questionNumber);
-            this.leaderboard.saveScore(result);
+            this.questionCounter++;
+            console.log(this.questionCounter);
+            // this.leaderboard.saveScore(result);
             // window.location.href = "ranking.html";
+            setTimeout(() => {
+                this.isProcessing = false;
+                this.generateRandomQuestion();
+            }, 2000)
         }
     }
 
